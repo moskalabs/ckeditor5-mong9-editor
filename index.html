@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>CKEditor & Mong9 Example</title>
+
+  <!-- 1. Mong9 설정 객체 -->
+  <script>
+    if (!window.M9_SET) window.M9_SET = {};
+    M9_SET['mong9_editor_use'] = '1';
+    /* mong9_url을 "plugins/mong9-editor/" 경로로 설정 */
+    M9_SET['mong9_url'] = './plugins/mong9-editor/';
+  </script>
+
+  <!-- 2. CKEditor4 본체 (ckeditor.js) 먼저 로드 -->
+  <script src="./ckeditor.js"></script>
+
+  <!-- 3. Mong9 JS -->
+  <script src="./plugins/mong9-editor/source/js/mong9.js"></script>
+  <!-- (있다면) mong9-connect.js도 추가 -->
+  <script src="./plugins/mong9-editor/source/js/mong9-connect.js"></script>
+
+  <!-- 4. Mong9 CSS -->
+  <link rel="stylesheet" href="./plugins/mong9-editor/source/etc/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="./plugins/mong9-editor/source/css/mong9-base.css">
+  <link rel="stylesheet" href="./plugins/mong9-editor/source/css/mong9.css">
+  <link rel="stylesheet" href="./plugins/mong9-editor/source/css/mong9-m.css" media="all and (max-width: 768px)">
+  <link rel="stylesheet" href="./plugins/mong9-editor/source/css/mong9-e.css" media="all and (max-width: 576px)">
+</head>
+<body>
+
+  <h1>CKEditor 예제</h1>
+  <p>여기에 내용이 들어갑니다.</p>
+  <textarea id="editor">몽9 에디터 + CKEditor4</textarea>
+
+  <script>
+    // (선택) 한국어 설정
+    CKEDITOR.config.language = 'ko';
+
+    // CKEditor 구동
+    CKEDITOR.replace('editor');
+
+    // Mong9 관련 설정 (HTML 태그/스타일 허용 등)
+    CKEDITOR.config.allowedContent = {
+      $1: {
+        elements: CKEDITOR.dtd,
+        attributes: true,
+        styles: true,
+        classes: true
+      }
+    };
+  </script>
+
+</body>
+</html>
