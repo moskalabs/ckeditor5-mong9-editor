@@ -1,46 +1,59 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>CKEditor & Mong9 Example</title>
+  <title>CKEditor + Mong9 Example</title>
 
-  <!-- 1. Mong9 설정 객체 -->
+  <!-- (1) jQuery 로드 (몽9가 jQuery 필요) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+  
+  <!-- (2) Mong9 설정 -->
   <script>
-    if (!window.M9_SET) window.M9_SET = {};
+    if (!window.M9_SET) {
+      window.M9_SET = {};
+    }
+    // 몽9 에디터 사용
     M9_SET['mong9_editor_use'] = '1';
-    /* mong9_url을 "plugins/mong9-editor/" 경로로 설정 */
-    M9_SET['mong9_url'] = './plugins/mong9-editor/';
+    // 아래 경로는 mong9-editor 폴더가 실제로 위치한 곳으로 맞추세요
+    M9_SET['mong9_url'] = './ckeditor4/plugins/mong9-editor/';
+    // 필요하다면 Google Token 등 추가:
+    // M9_SET['google_token'] = "AIzaSy...";
   </script>
 
-  <!-- 2. CKEditor4 본체 (ckeditor.js) 먼저 로드 -->
-  <script src="./ckeditor.js"></script>
+  <!-- (3) CKEditor4 본체 (ckeditor.js) -->
+  <script src="./ckeditor4/ckeditor.js"></script>
 
-  <!-- 3. Mong9 JS -->
-  <script src="./plugins/mong9-editor/source/js/mong9.js"></script>
-  <!-- (있다면) mong9-connect.js도 추가 -->
-  <script src="./plugins/mong9-editor/source/js/mong9-connect.js"></script>
+  <!-- (4) Mong9 플러그인 JS -->
+  <script src="./ckeditor4/plugins/mong9-editor/source/js/mong9.js"></script>
+  <script src="./ckeditor4/plugins/mong9-editor/source/js/mong9-connect.js"></script>
 
-  <!-- 4. Mong9 CSS -->
-  <link rel="stylesheet" href="./plugins/mong9-editor/source/etc/bootstrap-icons/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="./plugins/mong9-editor/source/css/mong9-base.css">
-  <link rel="stylesheet" href="./plugins/mong9-editor/source/css/mong9.css">
-  <link rel="stylesheet" href="./plugins/mong9-editor/source/css/mong9-m.css" media="all and (max-width: 768px)">
-  <link rel="stylesheet" href="./plugins/mong9-editor/source/css/mong9-e.css" media="all and (max-width: 576px)">
+  <!-- (5) Mong9 플러그인 CSS -->
+  <link rel="stylesheet" href="./ckeditor4/plugins/mong9-editor/source/etc/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="./ckeditor4/plugins/mong9-editor/source/css/mong9-base.css">
+  <link rel="stylesheet" href="./ckeditor4/plugins/mong9-editor/source/css/mong9.css">
+  <link rel="stylesheet" href="./ckeditor4/plugins/mong9-editor/source/css/mong9-m.css" media="all and (max-width: 768px)">
+  <link rel="stylesheet" href="./ckeditor4/plugins/mong9-editor/source/css/mong9-e.css" media="all and (max-width: 576px)">
 </head>
 <body>
 
   <h1>CKEditor 예제</h1>
   <p>여기에 내용이 들어갑니다.</p>
-  <textarea id="editor">몽9 에디터 + CKEditor4</textarea>
+
+  <!-- 실제 에디터가 적용될 textarea -->
+  <textarea id="editor" rows="10" cols="80">몽9 + CKEditor4</textarea>
 
   <script>
-    // (선택) 한국어 설정
+    // (선택) CKEditor 한국어로 설정
     CKEDITOR.config.language = 'ko';
 
-    // CKEditor 구동
+    // (선택) PDF 내보내기 플러그인 에러 방지용 (사용 안 할 경우)
+    // CKEDITOR.config.removePlugins = 'exportpdf';
+
+    // CKEditor 에디터 적용
     CKEDITOR.replace('editor');
 
-    // Mong9 관련 설정 (HTML 태그/스타일 허용 등)
+    // Mong9 에디터: HTML 태그, 스타일, 클래스 허용
     CKEDITOR.config.allowedContent = {
       $1: {
         elements: CKEDITOR.dtd,
