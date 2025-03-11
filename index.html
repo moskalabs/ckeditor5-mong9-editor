@@ -37,23 +37,17 @@
 </head>
 <body>
 
-  <h1>CKEditor 예제</h1>
-  <p>여기에 내용이 들어갑니다.</p>
-
   <!-- 실제 에디터가 적용될 textarea -->
   <textarea id="editor" rows="10" cols="80">여기에 내용이 들어갑니다.</textarea>
 
   <script>
-    // (선택) CKEditor 한국어로 설정
+    // CKEditor 한국어로 설정
     CKEDITOR.config.language = 'ko';
-
-    // (선택) PDF 내보내기 플러그인 에러 방지용 (사용 안 할 경우)
-    // CKEDITOR.config.removePlugins = 'exportpdf';
-
-    // CKEditor 에디터 적용
+    // exportpdf 플러그인 비활성화
+    CKEDITOR.config.removePlugins = 'exportpdf';
+    // CKEditor 초기화 전에 설정 적용
     CKEDITOR.replace('editor');
-
-    // Mong9 에디터: HTML 태그, 스타일, 클래스 허용
+    // Mong9 에디터 설정
     CKEDITOR.config.allowedContent = {
       $1: {
         elements: CKEDITOR.dtd,
