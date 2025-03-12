@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>SmartEditor2 Example</title>
+  <title>SmartEditor2 예제</title>
 
-  <!-- jQuery 로드 (버전 상관없이 3.x 이상 권장) -->
+  <!-- jQuery 추가 (SmartEditor가 이걸 필요로 해) -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <!-- HuskyEZCreator.js (Thymeleaf 경로 사용) -->
-  <script type="text/javascript" th:src="@{/smarteditor/js/HuskyEZCreator.js}" charset="UTF-8"></script>
+  <!-- SmartEditor 스크립트 추가 (상대 경로로 설정) -->
+  <script type="text/javascript" src="smarteditor/js/HuskyEZCreator.js" charset="UTF-8"></script>
 </head>
 <body>
   <h1>SmartEditor2 테스트</h1>
 
-  <form name="editorForm" method="post">
-    <!-- 에디터가 적용될 textarea -->
+  <form name="editorForm" method="post" action="/submit">
+    <!-- 에디터가 들어갈 textarea -->
     <textarea name="editor_txt" id="editor_area" style="width:600px; height:300px;"></textarea>
   </form>
 
@@ -27,15 +27,17 @@
       nhn.husky.EZCreator.createInIFrame({
         oAppRef: oEditors,
         elPlaceHolder: "editor_area",
-        // SmartEditor2Skin.html 위치를 정확히!
-        sSkinURI: "/smarteditor/SmartEditor2Skin.html",
+        // SmartEditor2Skin.html 경로 (상대 경로로 설정)
+        sSkinURI: "smarteditor/SmartEditor2Skin.html",
         fCreator: "createSEditor2"
       });
     });
 
     function submitContents() {
+      // 에디터 내용을 textarea에 반영
       oEditors.getById["editor_area"].exec("UPDATE_CONTENTS_FIELD", []);
-      alert(document.getElementById("editor_area").value);
+      // 정적 사이트라 서버가 없으니 일단 내용 확인용 알림창 띄움
+      alert("에디터 내용: " + document.getElementById("editor_area").value);
     }
   </script>
 </body>
