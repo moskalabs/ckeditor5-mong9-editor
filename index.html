@@ -11,23 +11,23 @@
   <script>
     if (!M9_SET) { var M9_SET = {}; }
     M9_SET['mong9_editor_use'] = '1';  // Mong9 에디터 사용
-    M9_SET['mong9_url'] = './smarteditor2/mong9-editor/';  // 몽9 에디터 주소
+    M9_SET['mong9_url'] = './mong9-editor/';  // 몽9 에디터 주소
     M9_SET["google_token"] = "AIzaSyAMdgTVhn64xo2Tpf0ewdtR055w68hAHOs";  // 구글지도 토큰(구글지도 사용시)
   </script>
   
   <!-- 몽9 에디터 리소스 추가 -->
-  <script src="./smarteditor2/mong9-editor/source/js/mong9.js"></script>
+  <script src="./mong9-editor/source/js/mong9.js"></script>
   
-  <link rel="stylesheet" href="./smarteditor2/mong9-editor/source/etc/bootstrap-icons/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="./smarteditor2/mong9-editor/source/css/mong9-base.css">
-  <link rel="stylesheet" href="./smarteditor2/mong9-editor/source/css/mong9.css">
-  <link rel="stylesheet" href="./smarteditor2/mong9-editor/source/css/mong9-m.css" media="all and (max-width: 768px)">
-  <link rel="stylesheet" href="./smarteditor2/mong9-editor/source/css/mong9-e.css" media="all and (max-width: 576px)">
+  <link rel="stylesheet" href="./mong9-editor/source/etc/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="./mong9-editor/source/css/mong9-base.css">
+  <link rel="stylesheet" href="./mong9-editor/source/css/mong9.css">
+  <link rel="stylesheet" href="./mong9-editor/source/css/mong9-m.css" media="all and (max-width: 768px)">
+  <link rel="stylesheet" href="./mong9-editor/source/css/mong9-e.css" media="all and (max-width: 576px)">
 
   <!-- SmartEditor 스크립트 추가 -->
-  <script type="text/javascript" src="smarteditor2/js/service/HuskyEZCreator.js" charset="UTF-8"></script>
-  <script type="text/javascript" src="smarteditor2/js/smarteditor2.js" charset="UTF-8"></script>
-  <script type="text/javascript" src="smarteditor2/mong9-editor/source/js/mong9-connect.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="smarteditor/js/HuskyEZCreator.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="smarteditor/js/smarteditor2.js" charset="UTF-8"></script>
+  <script type="text/javascript" src="mong9-editor/source/js/mong9-connect.js" charset="UTF-8"></script>
 </head>
 <body>
   <!-- 에디터 폼 -->
@@ -46,7 +46,7 @@
       nhn.husky.EZCreator.createInIFrame({
         oAppRef: oEditors,
         elPlaceHolder: "textarea_id",
-        sSkinURI: "smarteditor2/SmartEditor2Skin_ko_KR.html",
+        sSkinURI: "smarteditor/SmartEditor2Skin.html",
         fCreator: "createSEditor2"
       });
     });
