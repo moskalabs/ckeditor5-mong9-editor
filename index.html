@@ -13,23 +13,23 @@
   <script>
     if (!M9_SET) { var M9_SET = {}; }
     M9_SET['mong9_editor_use'] = '1'; // Mong9 에디터 사용
-    M9_SET['mong9_url'] = 'https://moskalabs.github.io/mong9-editor/smarteditor2/mong9-editor/'; // 몽9 에디터 주소
+    M9_SET['mong9_url'] = 'https://moskalabs.github.io/mong9-editor/'; // 몽9 에디터 주소 (수정됨)
     M9_SET["google_token"] = "AIzaSyAMdgTVhn64xo2Tpf0ewdtR055w68hAHOs"; // 구글지도 토큰(구글지도 사용시, 인증토큰이 필요합니다.)
   </script>
     
-  <script src="./smarteditor2/mong9-editor/source/js/mong9.js"></script>
+  <script src="https://moskalabs.github.io/mong9-editor/source/js/mong9.js"></script>
     
-  <link rel="stylesheet" href="./smarteditor2/mong9-editor/source/etc/bootstrap-icons/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="./smarteditor2/mong9-editor/source/css/mong9-base.css">
-  <link rel="stylesheet" href="./smarteditor2/mong9-editor/source/css/mong9.css">
-  <link rel="stylesheet" href="./smarteditor2/mong9-editor/source/css/mong9-m.css" media="all and (max-width: 768px)">
-  <link rel="stylesheet" href="./smarteditor2/mong9-editor/source/css/mong9-e.css" media="all and (max-width: 576px)">
+  <link rel="stylesheet" href="https://moskalabs.github.io/mong9-editor/source/etc/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="https://moskalabs.github.io/mong9-editor/source/css/mong9-base.css">
+  <link rel="stylesheet" href="https://moskalabs.github.io/mong9-editor/source/css/mong9.css">
+  <link rel="stylesheet" href="https://moskalabs.github.io/mong9-editor/source/css/mong9-m.css" media="all and (max-width: 768px)">
+  <link rel="stylesheet" href="https://moskalabs.github.io/mong9-editor/source/css/mong9-e.css" media="all and (max-width: 576px)">
 </head>
 <body>
 
-  <form name="editorForm" method="post" action="/submit">
+  <form name="editorForm" method="post" action="/submit" style="width:100%;">
     <!-- 에디터가 들어갈 textarea -->
-    <textarea name="editor_txt" id="editor_area" style="width:600px; height:300px;"></textarea>
+    <textarea name="editor_txt" id="editor_area" style="width:100%; height:500px;"></textarea>
   </form>
 
   <button type="button" onclick="submitContents()">전송</button>
@@ -49,7 +49,7 @@
       // 몽9 에디터 연결
       if (typeof M9_SET !== 'undefined' && M9_SET['mong9_editor_use'] === '1') {
         var script1 = document.createElement('script');
-        script1.src = "./smarteditor2/mong9-editor/source/js/mong9-connect.js";
+        script1.src = "https://moskalabs.github.io/mong9-editor/source/js/mong9-connect.js";
         document.head.appendChild(script1);
       }
     });
