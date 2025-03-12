@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>SmartEditor2 Example</title>
@@ -7,11 +7,10 @@
   <!-- jQuery 로드 (버전 상관없이 3.x 이상 권장) -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <!-- HuskyEZCreator.js (내부 폴더 경로 주의) -->
-  <script src="./smarteditor/js/service/HuskyEZCreator.js"></script>
+  <!-- HuskyEZCreator.js (Thymeleaf 경로 사용) -->
+  <script type="text/javascript" th:src="@{/smarteditor/js/HuskyEZCreator.js}" charset="UTF-8"></script>
 </head>
 <body>
-
   <h1>SmartEditor2 테스트</h1>
 
   <form name="editorForm" method="post">
@@ -29,7 +28,7 @@
         oAppRef: oEditors,
         elPlaceHolder: "editor_area",
         // SmartEditor2Skin.html 위치를 정확히!
-        sSkinURI: "./smarteditor/SmartEditor2Skin.html",
+        sSkinURI: "/smarteditor/SmartEditor2Skin.html",
         fCreator: "createSEditor2"
       });
     });
@@ -39,6 +38,5 @@
       alert(document.getElementById("editor_area").value);
     }
   </script>
-
 </body>
 </html>
