@@ -7,25 +7,25 @@
   <!-- jQuery 추가 -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
-  <!-- SmartEditor 스크립트 추가 - 순서 중요! -->
+  <!-- SmartEditor 스크립트 추가 -->
   <script type="text/javascript" src="smarteditor/js/HuskyEZCreator.js" charset="UTF-8"></script>
 
-  <!-- 몽9 에디터 설정 -->
+  <!-- 몽9 설정 -->
   <script>
     if (typeof M9_SET === 'undefined') { var M9_SET = {}; }
     M9_SET['mong9_editor_use'] = '1';  // Mong9 에디터 사용
-    M9_SET['mong9_url'] = 'https://moskalabs.github.io/mong9-editor/';  // CDN 주소 사용
+    M9_SET['mong9_url'] = './mong9-editor/';  // 로컬 경로 설정
     M9_SET["google_token"] = "AIzaSyAMdgTVhn64xo2Tpf0ewdtR055w68hAHOs";  // 구글지도 토큰
   </script>
   
-  <!-- 몽9 에디터 리소스 추가 - CDN 주소 사용 -->
-  <script src="https://moskalabs.github.io/mong9-editor/source/js/mong9.js"></script>
+  <!-- 몽9 에디터 리소스 추가 - 로컬 파일 경로 사용 -->
+  <script src="./mong9-editor/source/js/mong9.js"></script>
   
-  <link rel="stylesheet" href="https://moskalabs.github.io/mong9-editor/source/etc/bootstrap-icons/bootstrap-icons.min.css">
-  <link rel="stylesheet" href="https://moskalabs.github.io/mong9-editor/source/css/mong9-base.css">
-  <link rel="stylesheet" href="https://moskalabs.github.io/mong9-editor/source/css/mong9.css">
-  <link rel="stylesheet" href="https://moskalabs.github.io/mong9-editor/source/css/mong9-m.css" media="all and (max-width: 768px)">
-  <link rel="stylesheet" href="https://moskalabs.github.io/mong9-editor/source/css/mong9-e.css" media="all and (max-width: 576px)">
+  <link rel="stylesheet" href="./mong9-editor/source/etc/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="./css/mong9-base.css">
+  <link rel="stylesheet" href="./css/mong9.css">
+  <link rel="stylesheet" href="./css/mong9-m.css" media="all and (max-width: 768px)">
+  <link rel="stylesheet" href="./css/mong9-e.css" media="all and (max-width: 576px)">
 </head>
 <body>
   <!-- 에디터 폼 -->
@@ -41,6 +41,7 @@
     var oEditors = [];
     
     $(document).ready(function() {
+      // 스마트에디터 초기화
       nhn.husky.EZCreator.createInIFrame({
         oAppRef: oEditors,
         elPlaceHolder: "textarea_id",
@@ -48,9 +49,9 @@
         fCreator: "createSEditor2"
       });
       
-      // 몽9 에디터 연결 - DOM이 준비된 후 스크립트 로드
+      // 몽9 에디터 연결
       var script = document.createElement('script');
-      script.src = "https://moskalabs.github.io/mong9-editor/source/js/mong9-connect.js";
+      script.src = "./mong9-editor/source/js/mong9-connect.js";
       document.body.appendChild(script);
     });
 
